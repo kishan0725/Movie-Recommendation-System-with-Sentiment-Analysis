@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Movie Page</title>
+	<script type="text/javascript" src="{{url_for('static', filename='content.js')}}"></script>
+	<style>
+		body {
+    	background-image: url("../static/image.png");
+    	}
+    	#name{
+    		color: white;
+    	}
+</style>
+</head>
+
+
+<body>
+	<center>
+		<h1 id="name">{{result.title}}</h1>
+	</center>
+	<h3 class="list-group-item" id="title" style="color:white;">ID: &nbsp;{{result.id}}</h3>
+	<h3 class="list-group-item" id="title" style="color:white;">Title: &nbsp;{{result.title}}</h3>
+	<h3 class="list-group-item" id="overvie" style="color:white;">Overview: <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.overview}}</h3>
+	<h3 class="list-group-item" id="popularity" style="color:white;">Popularity: &nbsp;{{result.popularity}}</h3>
+	<h3 class="list-group-item" id="vote_average" style="color:white;">Rating: &nbsp;{{result.vote_average}}</h3>
+	<center>
+		<h1 style="color:white">User Reviews</h1>
+		 <div class="col-md-8" style="margin: 0 auto; margin-top:25px;">
+            <table class="table table-bordered" bordercolor="white" style="color:white">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 75%">Comments</th>
+                        <th scope="col">Sentiments</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+					{% for review, status in reviews.items() if not reviews.hidden %}
+					<tr style="background-color:#e5091485;">
+			            <td>{{review}}</td>
+			            <td>{{status}} : 
+			            	{% if status =='Good' %}
+			            		&#128515;
+			            	{% else %}
+			            		&#128534;
+			            	{% endif %}
+			            </td>
+			        </tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</center>
+
+</body>

@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+{% if t=='s' %}
+  <div class="movie" style="border-color: #181818;width: 60%;color: #A8A8A8;" >
+    <center><h2>Sorry! This movie is not in our database.</h3>
+    <h2>Please check if you spelled it correct.</h3>
+    <h2>Or try with another movie.</h3><center>
+  </div>
+
+  {% else %}
+  <div class="movie" style="color: #E8E8E8;">
+    <center><h4>Movies similar to "{{movie}}"</h4></center>
+  </div>
+
+  	<div class="list-recommend" style="margin-top: 30px;margin-bottom: 50px;text-align: center;">
+    <ul class="list-group list-group-flush" style="margin-left: auto;margin-right: auto;text-align: center;width: 40%;color: #E8E8E8;">
+      {% for m in r %}
+        <li class="list-group-item" id="movie-title" style="background-color:#e5091485;" onclick="content(this)" title="{{m|title}}"><strong>{{m|title}}</strong></li>
+      {% endfor %}
+    </ul>
+
+</div>
+  {% endif %}
+
+{% endblock %}
