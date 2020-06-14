@@ -9,6 +9,11 @@
     	#name{
     		color: white;
     	}
+    	.table td {
+    		border-color: white;
+    		border-style:solid; 
+			border-width:1px;
+    	}
 </style>
 </head>
 
@@ -37,12 +42,14 @@
 					{% for review, status in reviews.items() if not reviews.hidden %}
 					<tr style="background-color:#e5091485;">
 			            <td>{{review}}</td>
-			            <td>{{status}} : 
-			            	{% if status =='Good' %}
-			            		&#128515;
-			            	{% else %}
-			            		&#128534;
-			            	{% endif %}
+			            <td><center>
+				            	{{status}} : 
+				            	{% if status =='Good' %}
+				            		&#128515;
+				            	{% else %}
+				            		&#128534;
+				            	{% endif %}
+			            	</center>
 			            </td>
 			        </tr>
 					{% endfor %}
