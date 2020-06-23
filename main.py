@@ -32,31 +32,18 @@ def create_sim():
 
 def rcmd(m):
     m = m.lower()
-    # check if data and sim are already assigned
     try:
         data.head()
         sim.shape
     except:
         data, sim = create_sim()
-    # check if the movie is in our database or not
     if m not in data['movie_title'].unique():
-        return('Sorry! This movie is not in our database. Please check the spelling or try with some other movies')
+        return('Sorry! The movie your searched is not in our database. Please check the spelling or try with some other movies')
     else:
-        # getting the index of the movie in the dataframe
         i = data.loc[data['movie_title']==m].index[0]
-
-        # fetching the row containing similarity scores of the movie
-        # from similarity matrix and enumerate it
         lst = list(enumerate(sim[i]))
-
-        # sorting this list in decreasing order based on the similarity score
         lst = sorted(lst, key = lambda x:x[1] ,reverse=True)
-
-        # taking top 1- movie scores
-        # not taking the first index since it is the same movie
         lst = lst[1:11]
-
-        # making an empty list that will containg all 10 movie recommendations
         l = []
         for i in range(len(lst)):
             a = lst[i][0]
