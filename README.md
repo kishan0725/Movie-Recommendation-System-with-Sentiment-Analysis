@@ -1,10 +1,10 @@
 # Content-Based-Movie-Recommender-System-with-sentiment-analysis
 
+Content Based Recommender System recommends items similar to the items user likes and analyses the sentiments on the reviews given by the user for that movie.
+
 ![GIF](./static/mrswsa.gif)
 
 Check out the live demo: https://mrswsa.herokuapp.com/
-
-Content Based Recommender System recommends items similar to the items user likes and analyses the sentiments on the reviews given by the user for that movie.
 
 The details of the movie is fetched using an api by TMDB, https://www.themoviedb.org/documentation/api and using the imdb id of the movie in the api, I did web scraping to get the reviews given by the user in the IMDB side using `beautifulsoup4` and performed sentiment analysis on those reviews.
 
@@ -12,6 +12,14 @@ The details of the movie is fetched using an api by TMDB, https://www.themoviedb
 
 Create an account in https://www.themoviedb.org/, click on the `API` link from the left hand sidebar in your account settings and fill all the details to apply for API key. You will see the API key in your `API` sidebar once your request is approved.
 
+## How to run the project?
+
+1. Install all the libraries mentioned in the [requirements.txt](https://github.com/kishan0725/Movie-Recommendation-System-with-Sentiment-Analysis/blob/master/requirements.txt) file.
+2. Clone this repository in your local system.
+3. Replace YOUR_API_KEY in the `main.py` file.
+4. Open the command prompt from your project directory and run the command `python main.py`.
+5. Go to your browser and type `http://127.0.0.1:5000/` in the address bar.
+6. Hurray! That's it.
 
 ## Similarity Score : 
 
@@ -33,5 +41,5 @@ More about Cosine Similarity : [Understanding the Math behind Cosine Similarity]
 2. [The Movies Dataset](https://www.kaggle.com/rounakbanik/the-movies-dataset)
 3. [List of movies in 2018](https://en.wikipedia.org/wiki/List_of_American_films_of_2018)
 4. [List of movies in 2019](https://en.wikipedia.org/wiki/List_of_American_films_of_2019)
-
+5. [List of movies in 2020](https://en.wikipedia.org/wiki/List_of_American_films_of_2020)
 
