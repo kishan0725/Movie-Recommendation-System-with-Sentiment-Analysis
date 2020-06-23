@@ -6,7 +6,7 @@ Content Based Recommender System recommends items similar to the items user like
 
 Check out the live demo: https://mrswsa.herokuapp.com/
 
-The details of the movie is fetched using an api by TMDB, https://www.themoviedb.org/documentation/api and using the imdb id of the movie in the api, I did web scraping to get the reviews given by the user in the IMDB side using `beautifulsoup4` and performed sentiment analysis on those reviews.
+The details of the movies(title, genre, runtime, rating, poster, etc) are fetched using an API by TMDB, https://www.themoviedb.org/documentation/api, and using the IMDB id of the movie in the apiAPI I did web scraping to get the reviews given by the user in the IMDB site using `beautifulsoup4` and performed sentiment analysis on those reviews.
 
 ## How to get the API key?
 
