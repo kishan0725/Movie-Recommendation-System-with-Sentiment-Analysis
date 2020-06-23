@@ -41,7 +41,10 @@
        	right: 20px;
        	width: 100%;
   	}
-  .list-group-item:hover {
+  /*.list-group-item:hover {
+      cursor: pointer;
+    }*/
+    .card {
       cursor: pointer;
     }
 
@@ -5925,18 +5928,167 @@
   "1917",
   "just mercy",
   "clemency",
-  "apparition"
+  "apparition",
+  'the grudge',
+ 'underwater',
+ 'like a boss',
+ 'inherit the viper',
+ 'the sonata',
+ 'the murder of nicole brown simpson',
+ 'bad boys for life',
+ 'dolittle',
+ 'the gentlemen',
+ 'the turning',
+ 'the last full measure',
+ 'the night house',
+ 'john henry',
+ 'the rhythm section',
+ 'gretel & hansel',
+ 'birds of prey',
+ 'the lodge',
+ 'timmy failure: mistakes were made',
+ 'horse girl',
+ 'to all the boys: p.s. i still love you',
+ 'sonic the hedgehog',
+ 'fantasy island',
+ 'the photograph',
+ 'downhill',
+ 'the call of the wild',
+ 'emma.',
+ 'the last thing he wanted',
+ 'brahms: the boy ii',
+ 'the night clerk',
+ 'impractical jokers: the movie',
+ 'the invisible man',
+ 'all the bright places',
+ 'wendy',
+ 'guns akimbo',
+ 'onward',
+ 'the way back',
+ 'the burnt orange heresy',
+ 'spenser confidential',
+ 'the banker',
+ 'first cow',
+ 'bloodshot',
+ 'the hunt',
+ 'i still believe',
+ 'stargirl',
+ 'the roads not taken',
+ 'lost girls',
+ 'lost transmissions',
+ 'never rarely sometimes always',
+ 'resistance',
+ 'uncorked',
+ 'vivarium',
+ 'coffee & kareem',
+ 'trolls world tour',
+ 'love wedding repeat',
+ 'the main event',
+ 'sergio',
+ 'the willoughbys',
+ 'extraction',
+ 'bad education',
+ 'dangerous lies',
+ 'all day and a night',
+ 'the half of it',
+ 'valley girl',
+ 'capone',
+ 'the wrong missy',
+ 'scoob!',
+ 'body cam',
+ 'the lovebirds',
+ 'inheritance',
+ 'survive the night',
+ 'the high note',
+ 'shirley',
+ 'the last days of american crime',
+ 'think like a dog',
+ 'artemis fowl',
+ 'da 5 bloods',
+ 'the king of staten island',
+ 'you should have left',
+ 'wasp network',
+ '7500',
+ 'eurovision song contest: the story of fire saga',
+ 'irresistible',
+ 'my spy',
+ 'unknown',
+ 'hamilton',
+ 'desperados',
+ 'greyhound',
+ 'the old guard',
+ 'unhinged',
+ 'palm springs',
+ 'the broken hearts gallery',
+ 'mulan',
+ 'the kissing booth 2',
+ 'tenet',
+ 'summerland',
+ 'the informer',
+ 'an american pickle',
+ 'the spongebob movie: sponge on the run',
+ 'the empty man',
+ 'the tax collector',
+ 'bill & ted face the music',
+ 'the personal history of david copperfield',
+ 'greenland',
+ 'project power',
+ 'the one and only ivan',
+ 'antebellum',
+ 'let him go',
+ 'the new mutants',
+ 'the courier',
+ 'a quiet place part ii',
+ 'monster hunter',
+ 'honest thief',
+ 'the conjuring: the devil made me do it',
+ "the king's man",
+ 'kajillionaire',
+ 'the nest',
+ 'candyman',
+ 'the trial of the chicago 7',
+ 'secret society of second-born royals',
+ 'what about love',
+ 'wonder woman 1984',
+ 'without remorse',
+ 'death on the nile',
+ 'halloween kills',
+ 'the french dispatch',
+ 'snake eyes',
+ 'connected',
+ 'those who wish me dead',
+ 'fatale',
+ 'come play',
+ 'black widow',
+ 'stillwater',
+ 'clifford the big red dog',
+ 'deep water',
+ 'no time to die',
+ 'soul',
+ 'the father',
+ 'happiest season',
+ 'voyagers',
+ 'free guy',
+ 'dune',
+ 'west side story',
+ 'coming 2 america',
+ 'top gun: maverick',
+ 'the croods 2',
+ 'the last duel',
+ 'news of the world',
+ 'respect'
 ];
   </script>
 
   <script type="text/javascript" src="{{url_for('static', filename='content.js')}}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 
 </head>
-<body id="content" style="font-family: 'IBM Plex Sans', sans-serif">
+<body id="content" style="font-family: 'Noto Sans JP', sans-serif;">
 
 
-	<div class="ml-container">
-    <center><h1 style=""> Movie Recommendation System</h2></center>
+	<div class="ml-container" style="display: block;">
+    <center><h1 style=""> Movie Recommendation System</h1></center>
 		<form action="{{ url_for('recommend')}}">
 		
 		<!-- <input type="text" name="comment"/> -->
@@ -5952,7 +6104,7 @@
 		</div>
 
 		<div class="form-group" style="text-align: center;">
-  <button type="submit" class="btn btn-primary btn-block" style="background-color: #e50914;text-align: center;border-color: #e50914;">Enter</button><br><br>
+  <button type="submit" class="btn btn-primary btn-block" style="background-color: #e50914;text-align: center;border-color: #e50914;width:120px;">Enter</button><br><br>
   </div>
 
 		
