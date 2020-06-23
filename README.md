@@ -1,10 +1,22 @@
-# Content-Based-Movie-Recommender-System
+# Content-Based-Movie-Recommender-System-with-sentiment-analysis
 
-Content Based Recommender System recommends items similar to the items user likes. How does it decide which item is most similar to the item user likes? Here we use the similarity scores.
+![GIF](./static/mrswsa.gif)
 
-Live Demo : [Movie Recommender System by Kishan](https://movierecommendersystem.herokuapp.com)
+Check out the live demo: https://mrswsa.herokuapp.com/
+
+Content Based Recommender System recommends items similar to the items user likes and analyses the sentiments on the reviews given by the user for that movie.
+
+The details of the movie is fetched using an api by TMDB, https://www.themoviedb.org/documentation/api and using the imdb id of the movie in the api, I did web scraping to get the reviews given by the user in the IMDB side using `beautifulsoup4` and performed sentiment analysis on those reviews.
+
+## How to get the API key?
+
+Create an account in https://www.themoviedb.org/, click on the `API` link from the left hand sidebar in your account settings and fill all the details to apply for API key. You will see the API key in your `API` sidebar once your request is approved.
+
 
 ## Similarity Score : 
+
+   How does it decide which item is most similar to the item user likes? Here we use the similarity scores.
+   
    It is a numerical value ranges between zero to one which helps to determine how much two items are similar to each other on a scale of zero to one. This similarity score is obtained measuring the similarity between the text details of both of the items. So, similarity score is the measure of similarity between given text details of two items. This can be done by cosine-similarity.
    
 ## How Cosine Similarity works?
@@ -14,13 +26,6 @@ Live Demo : [Movie Recommender System by Kishan](https://movierecommendersystem.
 
   
 More about Cosine Similarity : [Understanding the Math behind Cosine Similarity](https://www.machinelearningplus.com/nlp/cosine-similarity/)
-
-
-This is a hollywood movie recommender system built with Python. I've used IMDB 5000 Movie Dataset to built this.
-
-### Snapshot
-
-![image](https://user-images.githubusercontent.com/36665975/72214909-7fadfd00-3531-11ea-8b07-b2996ecfee46.png)
 
 ### Sources of the datasets 
 
