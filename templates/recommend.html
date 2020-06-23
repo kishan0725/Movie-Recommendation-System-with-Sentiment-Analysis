@@ -4,25 +4,146 @@
 {% block content %}
 
 {% if t=='s' %}
+
   <div class="movie" style="border-color: #181818;width: 60%;color: #A8A8A8;" >
-    <center><h2>Sorry! This movie is not in our database.</h3>
-    <h2>Please check if you spelled it correct.</h3>
-    <h2>Or try with another movie.</h3><center>
+    <center><h2>Sorry! This movie is not in our database.</h2>
+    <h2>Please check if you spelled it correct.</h2>
+    <h2>Or try with another movie.</h2></center>
   </div>
 
   {% else %}
-  <div class="movie" style="color: #E8E8E8;">
-    <center><h4>Movies similar to "{{movie}}"</h4></center>
-  </div>
 
-  	<div class="list-recommend" style="margin-top: 30px;margin-bottom: 50px;text-align: center;">
+  	<!-- <div class="list-recommend" style="margin-top: 30px;margin-bottom: 50px;text-align: center;">
     <ul class="list-group list-group-flush" style="margin-left: auto;margin-right: auto;text-align: center;width: 40%;color: #E8E8E8;">
       {% for m in r %}
         <li class="list-group-item" id="movie-title" style="background-color:#e5091485;" onclick="content(this)" title="{{m|title}}"><strong>{{m|title}}</strong></li>
       {% endfor %}
     </ul>
 
-</div>
+</div> -->
+<style>
+  .movie-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-around;
+    }
+  .movie-content > div {
+    margin:20px;
+  }
+  #name{
+    color: white;
+  }
+  .table td {
+    border-color: white;
+    border-style:solid; 
+    border-width:1px;
+  }
+  .poster{
+    -webkit-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+    -moz-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+    box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+  }
+  #mcontent {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  h6 {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 650px) {
+    #mcontent {
+      display: block;
+    }
+    .poster-lg {
+      display: none;
+    }
+}
+
+  @media only screen and (min-width: 651px) {
+    .poster-sm {
+      display: none;
+    }
+</style>
+
+<center>
+    <h2 id="name" class="text-uppercase">{{result.title}}</h2>
+  </center>
+  <br/>
+  <div id="mycontent">
+    <div id="mcontent">
+      <div class="poster-lg">
+        <img class="poster" style="border-radius: 40px;margin-left: 90px;" height="400" width="250" src = {{ img_path }}>
+      </div>
+      <div class="poster-sm text-center">
+        <img class="poster" style="border-radius: 40px;margin-bottom: 5%;" height="400" width="250" src = {{ img_path }}>
+      </div>
+
+      <div style="margin-left: 50px">
+        <br/>
+        <h6 id="title" style="color:white;">TITLE: &nbsp;{{result.title}}</h6>
+        <h6 id="overview" style="color:white;max-width: 85%">OVERVIEW: <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.overview}}</h6>
+        <!-- <h6 id="popularity" style="color:white;">POPULARITY: &nbsp;{{result.popularity}}</h6> -->
+        <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{result.vote_average}}/10 ({{vote_count}} votes)</h6>
+        <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
+        <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
+        <h6 id="runtime" style="color:white;">RUNTIME: &nbsp;{{runtime}}</h6>
+        <h6 id="status" style="color:white;">STATUS: &nbsp;{{status}}</h6>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <center>
+    {% if reviews %}
+    <h2 style="color:white">USER REVIEWS</h2>
+     <div class="col-md-12" style="margin: 0 auto; margin-top:25px;">
+            <table class="table table-bordered" bordercolor="white" style="color:white">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col" style="width: 75%">Comments</th>
+                        <th class="text-center" scope="col">Sentiments</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+          {% for review, status in reviews.items() if not reviews.hidden %}
+          <tr style="background-color:#e5091485;">
+                  <td>{{review}}</td>
+                  <td><center>
+                      {{status}} : 
+                      {% if status =='Good' %}
+                        &#128515;
+                      {% else %}
+                        &#128534;
+                      {% endif %}
+                    </center>
+                  </td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div style="color:white;">
+      <h1 style="color:white"> This movie is not released yet. Stay tuned! </h1>
+    </div>
+    {% endif %}
+  </center>
+<br/>
+
+  <div class="movie" style="color: #E8E8E8;">
+    <center><h3>RECOMMENDED MOVIES FOR YOU</h3></center>
+  </div>
+
+  <div class="movie-content">
+    {% for poster, title in cards.items() if not cards.hidden %}
+    <div class="card" style="width: 14rem;" onclick="content(this)" title="{{title}}">
+      <img class="card-img-top" height="360" width="240" alt="Card image cap" src={{poster}}>
+      <div class="card-body">
+        <h5 class="card-title">{{title|capitalize}}</h5>
+      </div>
+    </div>
+{% endfor %}
+  </div>
   {% endif %}
 
 {% endblock %}
