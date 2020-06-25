@@ -11,7 +11,7 @@ import requests
 
 from tmdbv3api import TMDb
 tmdb = TMDb()
-tmdb.api_key = '5492165c61b1a21c06eb3a3b578a6339'
+tmdb.api_key = 'YOUR_API_KEY'
 
 from tmdbv3api import Movie
 
@@ -75,11 +75,16 @@ def MinsToHours(duration):
     else:
         return "{:.0f} hours {} minutes".format(duration/60,duration%60)
 
+def get_suggestions():
+    data = pd.read_csv('main_data.csv')
+    return list(data['movie_title'].str.capitalize())
+
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
+    suggestions = get_suggestions()
     return render_template('home.html')
 
 
@@ -150,7 +155,9 @@ def recommend():
             poster.append('https://image.tmdb.org/t/p/original{}'.format(data_json['poster_path']))
         movie_cards = {poster[i]: r[i] for i in range(len(r))}
 
-
+        # get movie names for auto completion
+        suggestions = get_suggestions()
+        
         return render_template('recommend.html',movie=movie,mtitle=r,t='l',cards=movie_cards,
             result=result[0],reviews=movie_reviews,img_path=img_path,genres=genre,vote_count=vote_count,
             release_date=rd,status=status,runtime=runtime)
